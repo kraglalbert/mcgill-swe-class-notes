@@ -115,9 +115,11 @@
     [INFO] 
     [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ helloworld --- 
     [INFO] Using 'UTF-8' encoding to copy filtered resources. 
-    [INFO] skip non existing resourceDirectory /Users/shanemcintosh/mcgill/teaching/ECSE437/f18/exercise/helloworld/src/main/resources [INFO] 
-    [INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ helloworld --- [INFO] Changes detected - recompiling the module! 
-    [INFO] Compiling 1 source file to /Users/shanemcintosh/mcgill/teaching/ECSE437/f18/exercise/helloworld/target/classes [INFO] ------------------------------------------------------------- 
+    [INFO] skip non existing resourceDirectory /Users/shanemcintosh/mcgill/teaching/ECSE437/f18/exercise/helloworld/src/main/resources         [INFO] 
+    [INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ helloworld --- 
+    [INFO] Changes detected - recompiling the module! 
+    [INFO] Compiling 1 source file to /Users/shanemcintosh/mcgill/teaching/ECSE437/f18/exercise/helloworld/target/classes 
+    [INFO] ------------------------------------------------------------- 
     [ERROR] COMPILATION ERROR : 
     [INFO] ------------------------------------------------------------- 
     [ERROR] /Users/shanemcintosh/mcgill/teaching/ECSE437/f18/exercise/helloworld/src/main/java/ecse437/App.java:[11,45] ';' expected 
