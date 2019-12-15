@@ -59,19 +59,15 @@ monitor ProducerConsumer {
     void produce(int item) {
         if (count == N) wait(&full);      // buffer is full, block
         put_item(item);                   // put item in buffer
-        count++;                   		  // increment count of full 
-        								  // slots
-        if (count == 1) signal(&empty);   // if buffer was empty, 
-        							 	  // wake consumer
+        count++;                          // increment count of full slots
+        if (count == 1) signal(&empty);   // if buffer was empty, wake consumer
     }
 
     int remove() {
         if (count == 0) wait(&empty);     // if buffer is empty, block
         int item = remove_item();         // remove item from buffer
-        count--;                   		  // decrement count of full 
-        								  // slots
-        if (count == N-1) signal(&full);  // if buffer was full, wake 
-        								  // producer
+        count--;                          // decrement count of full slots
+        if (count == N-1) signal(&full);  // if buffer was full, wake producer
         return item;
     }
 }
@@ -93,8 +89,6 @@ Consumer() {
     }
 }
 ```
-
-
 
 ### Dining Philosophers Problem
 
@@ -144,4 +138,3 @@ monitor DiningPhilosophers {
     }
 }
 ```
-
