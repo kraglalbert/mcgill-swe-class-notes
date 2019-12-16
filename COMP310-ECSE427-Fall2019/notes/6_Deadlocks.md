@@ -25,6 +25,7 @@
   2. **Hold and wait:** processes can wait for resources while holding others
   3. **No preemption:** processes will not give up a resource until they are finished with it
   4. **Circular wait:** each process in the chain holds a resource requested by another
+* These four cases only guarantee deadlock if there is **one instance of each resource type**
 * If one of these necessary conditions is prevented, then deadlocks cannot occur
   * Various solutions prevent one of the four conditions
 
