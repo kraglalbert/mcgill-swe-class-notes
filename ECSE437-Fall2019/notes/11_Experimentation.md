@@ -27,8 +27,8 @@
 * Hypothesis formulation
 
   * In the context of software, hypotheses can be formulated about changing/improving some "bottom line"-related measurements
-    * For example, click through rate or performance measurements
-  * Example: "Changing the button colour from blue to green will increase the click through rate"
+    * For example, click through rate (CTR) or other performance measurements
+  * Example: "Changing the button colour from *blue* to *green* will increase the click through rate"
 
 * Group assignment
 
@@ -38,12 +38,12 @@
 
 * Statistical hypothesis testing
 
-  * used to check if two samples are theoretically derived from the same distribution
+  * Used to check if two samples are theoretically derived from the same distribution
   * The output of a statistical test can usually be represented using a p-value
     * This is the likelihood of the two samples coming from the same population
     * Low p-values often indicate that an experiment was successful
     * Often compared to an $\alpha$ value of 0.05
-    * If $p < \alpha$, then we can *reject the null hypothesis*, i.e. there is reason to believe that the hypoithesis is true
+    * If $p < \alpha$, then we can *reject the null hypothesis*, i.e. there is reason to believe that the hypothesis is true
 
 * How to calculate the p-value:
 

@@ -148,7 +148,7 @@
 
 24. How does Docker differentiate itself from Puppet?
 
-    * Docker is a virtualization took for managing different containers
+    * Docker is a virtualization tool for managing different containers
     * Puppet is a tool for managing infrastructure 
 
 25. What does this Puppet manifest file do?
