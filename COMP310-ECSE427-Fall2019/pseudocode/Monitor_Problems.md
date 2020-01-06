@@ -51,24 +51,24 @@ signal() {
 
 ```c
 monitor ProducerConsumer {
-    cond_var full;
-    cond_var empty;
+    cond_var not_full;
+    cond_var not_empty;
     int count = 0;
 	
     /* Monitor functions */
     void produce(int item) {
-        if (count == N) wait(&full);      // buffer is full, block
-        put_item(item);                   // put item in buffer
-        count++;                          // increment count of full slots
-        if (count == 1) signal(&empty);   // if buffer was empty, wake consumer
+        if (count == N) wait(&not_full);     // buffer is full, block
+        put_item(item);                      // put item in buffer
+        count++;                             // increment count of full slots
+        if (count == 1) signal(&not_empty);  // if buffer was empty, wake consumer
     }
 
     int remove() {
-        if (count == 0) wait(&empty);     // if buffer is empty, block
-        int item = remove_item();         // remove item from buffer
-        count--;                          // decrement count of full slots
-        if (count == N-1) signal(&full);  // if buffer was full, wake producer
-        return item;
+        if (count == 0) wait(&not_empty);    // if buffer is empty, block
+        int item = remove_item();            // remove item from buffer
+        consume_item(item);
+        count--;                             // decrement count of full slots
+        if (count == N-1) signal(&not_full); // if buffer was full, wake producer
     }
 }
 

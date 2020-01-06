@@ -1,14 +1,17 @@
 # Midterm 1 Review Session Notes
 
 1. What is the difference between Git and Apache Subversion?
-    * Git is a distributed VCS, but Subversion is a centralized VCS
+    
+   * Git is a distributed VCS, but Subversion is a centralized VCS
    
 4. What is the Git subcommand to upload changes to the upstream repository?
-    * `git push`
+    
+   * `git push`
    
 6. List the roles in traditional code reviews that are applicable to the modern code review process.
-    * Author, Reviewer
-
+    
+* Author, Reviewer
+    
 8. For the following Maven code, which target-based lifecycle was invoked, and what is the group ID of the project?
 
     ```
@@ -45,6 +48,7 @@
     * `git add`
     
 14. What are the three levels of abstraction at which Maven jobs operate?
+    
     *  Lifecycles, Phases, Goals
     
 15. What are the three Maven build lifecycles?
@@ -57,7 +61,8 @@
     * Rebasing can be done instead to avoid merging
     
 17. Give examples of build tools that subscribe to a low-level design paradigm.
-    * Make, Apache Ant
+    
+  * Make, Apache Ant
   
 19. What went wrong with the command below?
     ```
@@ -84,6 +89,7 @@
     * Compilation error due to a missing semicolon
 
 23. What is the rationale behind an abstraction-based build system?
+    
     * Makes logical build operations easier by providing first-class support for them as basic operations
     
 24. List some outcomes that developers expect out of a code review.

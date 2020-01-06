@@ -44,7 +44,8 @@ In this variation, the writers will starve.
 sem_t rw_mutex = 1; // mutex to ensure reading and writing does not 
 					// happen at the same time
 sem_t mutex = 1; // mutex to ensure exclusive access to read_count
-int read_count = 0; // keeps track of how many readers are currently reading
+int reader_count = 0; // keeps track of how many readers are currently 
+                      //reading
 
 write() {
     int item = 1;
@@ -58,17 +59,17 @@ read() {
     int item;
     
     wait(&mutex); // get exclusive access to read_count variable
-    read_count++;
-    if (read_count == 1) {
-        wait(&rw_mutex); // make writers wait for readers to finish
+    reader_count++;
+    if (reader_count == 1) {
+        wait(&rw_mutex); // wait for writers to finish
     }
     signal(&mutex);
     
     item = read();
     
     wait(&mutex); // get exclusive access to read_count variable
-    read_count--;
-    if (read_count == 0) {
+    reader_count--;
+    if (reader_count == 0) {
         signal(&rw_mutex); // all readers finished
     }
     signal(&mutex);
