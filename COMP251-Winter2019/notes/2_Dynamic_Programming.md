@@ -103,9 +103,9 @@ Suppose we pick an arbitrary element from $L$. With this element, we have two ch
 
 $P[n, k] = P[n-1, k] \cdotp k + P[n-1, k-1]$
 
-Where $P[n, k]$ represents the number of possible subset partitions for a list of size $n$. The $P[n-1, k]$ term represents the option where we place an element into an existing subset, and the $P[n-1, k-1]$ term represents the option where the element is placed into a new subset (and there are now $k-1​$ more subsets that we need to make). 
+Where $P[n, k]$ represents the number of possible subset partitions for a list of size $n$. The $P[n-1, k]$ term represents the option where we place an element into an existing subset, and the $P[n-1, k-1]$ term represents the option where the element is placed into a new subset (and there are now $k-1$ more subsets that we need to make). 
 
-It is important to note that the first term in the recurrence must be multiplied by $k​$. This is to account for all of the possible subsets that an element can be placed in.
+It is important to note that the first term in the recurrence must be multiplied by $k$. This is to account for all of the possible subsets that an element can be placed in.
 
 **Pseudocode:**
 
@@ -128,7 +128,7 @@ func subsetPartition(n, k) {
 
 **Complexity:**
 
-The brute-force solution considers all possibilities and gives a runtime proportional to $\Theta(2^n)​$. The DP solution has the same recurrence as the Binomial Coefficients problem (with the only difference being the multiplication by $k​$), and it also has the same runtime of $\Theta(nk)​$. This can also be seen with the two nested for-loops above. 
+The brute-force solution considers all possibilities and gives a runtime proportional to $\Theta(2^n)$. The DP solution has the same recurrence as the Binomial Coefficients problem (with the only difference being the multiplication by $k$), and it also has the same runtime of $\Theta(nk)$. This can also be seen with the two nested for-loops above. 
 
 ## The Travelling Salesman Problem
 
@@ -170,7 +170,7 @@ func tsp(dist) {
 
 **Complexity:**
 
-The DP algorithm considers all possible subsets, of which there are $2^n​$ possibilities. On top of this, for each subset the algorithm must check that the current city is not in $S​$, which takes time $\leq n​$, and it must also take the minimum over all $l \in S​$, which also takes time $\leq n​$. Therefore the overall runtime is $\Theta(n^{2}2^n)​$.
+The DP algorithm considers all possible subsets, of which there are $2^n$ possibilities. On top of this, for each subset the algorithm must check that the current city is not in $S$, which takes time $\leq n$, and it must also take the minimum over all $l \in S$, which also takes time $\leq n$. Therefore the overall runtime is $\Theta(n^{2}2^n)$.
 
 *Note: the extra space/memory required will be $\Theta(n2^n)$ for $n$ rows and $2^n$ columns.* 
 
@@ -188,9 +188,9 @@ This step takes $\Theta(n)$.
 
 The brute-force solution to this problem involves generating all $2^n$ subsets and then checking to see if any sum up to $k$. Since this gives an exponential runtime, we would like to do better.
 
-To implement a DP solution, we will define two tables: $L[i, j]​$ and $S[i, j]​$. $L[i, j]​$ will contain whether it is possible (i.e. true or false) to make a subset of size $j​$ using only up to the $i^{th}​$ element from $N​$. $S[i, j]​$ will be true if $N[i]​$ is part of the solution to $L[i, j]​$ and false otherwise. Then, we can note that:
+To implement a DP solution, we will define two tables: $L[i, j]$ and $S[i, j]$. $L[i, j]$ will contain whether it is possible (i.e. true or false) to make a subset of size $j$ using only up to the $i^{th}$ element from $N$. $S[i, j]$ will be true if $N[i]$ is part of the solution to $L[i, j]$ and false otherwise. Then, we can note that:
 
-$P[0, 0] = true​$
+$P[0, 0] = true$
 
 $P[0, j] = false,$ $ j > 0$  
 
@@ -284,11 +284,11 @@ The first algorithm without $S[i,j]$ uses two nested for loops and runs in time 
 
 ## Worker Assignment
 
-**Problem:** *Assume we are given $N$ workers and $N$ jobs. We want to assign each worker to exactly one job, and to do this we are given a table $N[i,j]$, where this would represent the value obtained from assigning worker $i$ to job $j​$. Given this, maximize the total value of the job assignments.*
+**Problem:** *Assume we are given $N$ workers and $N$ jobs. We want to assign each worker to exactly one job, and to do this we are given a table $N[i,j]$, where this would represent the value obtained from assigning worker $i$ to job $j$. Given this, maximize the total value of the job assignments.*
 
 **Solution:**
 
-The brute-force solution to this problem would be to generate all possible assignments, and check the sum of each to find the maximum. This would take time $\Theta(n! \cdotp n)​$.
+The brute-force solution to this problem would be to generate all possible assignments, and check the sum of each to find the maximum. This would take time $\Theta(n! \cdotp n)$.
 
 We can improve this runtime with dynamic programming. The general idea is to pick a worker and assign them to a job. We don't know if this is the optimal selection, but we can assume that it is. Then, we are left with a smaller matrix that does not include the selected worker and the assigned job. This gives us a natural subproblem structure.
 

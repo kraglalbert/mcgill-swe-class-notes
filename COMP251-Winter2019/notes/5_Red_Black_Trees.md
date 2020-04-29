@@ -46,7 +46,7 @@ Strictly speaking, both the rank and colour are not required to implement a red-
 
 * External nodes are always coloured black and have rank 0.
 * A red node cannot have another red node as its child or parent.
-* Given a node $x​$, the rank for $x​$'s parent is determined as follows:
+* Given a node $x$, the rank for $x$'s parent is determined as follows:
   * If the $x$ is black, then $rank[parent] = rank[x] + 1$
   * If the $x$ is red, then $rank[parent] = rank[x]$
 
@@ -69,9 +69,9 @@ The numbers denote the number of edges on the bottom of the pods. The term "2-3-
 
 > $2^r \leq n+1 \leq 4^r $ 	
 
-To see why the above is true, we can observe that every node on level $i$ will have between two and four descendants (including red nodes) on level $i-1$. Since all external nodes are descendants of the root, there will at least $2^r$ external nodes and at most $4^r​$.
+To see why the above is true, we can observe that every node on level $i$ will have between two and four descendants (including red nodes) on level $i-1$. Since all external nodes are descendants of the root, there will at least $2^r$ external nodes and at most $4^r$.
 
-> **Theorem:** For a red-black tree of height $h$ with $n$ internal nodes: $h \leq 2rank[root] \leq 2log_2(n+1)​$.
+> **Theorem:** For a red-black tree of height $h$ with $n$ internal nodes: $h \leq 2rank[root] \leq 2log_2(n+1)$.
 
 ## Red-Black Tree Operations
 
@@ -134,7 +134,7 @@ These are the key points for each case:
 * Case 1: 
   * $x$ has a grandparent
   * $x$'s parent is red
-  * $x​$'s uncle is red
+  * $x$'s uncle is red
 * Case 2:
   * $x$'s parent is the root of the tree
   * $x$'s sibling is red
@@ -142,7 +142,7 @@ These are the key points for each case:
   * $x$'s parent is black and isn't the root
 * Case 4:
   * $x$'s parent is red
-  * $x​$'s uncle is black
+  * $x$'s uncle is black
 
 We now define the function ROTATE. The two possible cases, excluding symmetries, are shown below:
 
@@ -161,7 +161,7 @@ In all of the trees above, A-E are always filled in from left to right. A rotati
 We define DELETE as the standard delete for a binary search tree followed by a FIX. However, we can also define a LAZY DELETE, which can be done as follows:
 
 * Instead of actually removing a node, simply mark it as "deleted".
-* Once 50% or more of the nodes in the tree are marked as deleted, find all of the non-deleted nodes with an inorder traversal in time $O(n)​$ and then build a new tree consisting of those nodes in time $O(n)​$, which is possible when the nodes are sorted.
+* Once 50% or more of the nodes in the tree are marked as deleted, find all of the non-deleted nodes with an inorder traversal in time $O(n)$ and then build a new tree consisting of those nodes in time $O(n)$, which is possible when the nodes are sorted.
 * It is sufficient to make the new tree a complete binary tree and make the leaves red and all of the other nodes black.
 
 #### SPLIT:
@@ -201,7 +201,7 @@ This algorithm takes in two red-black trees, $T_1$ and $T_2$, where every elemen
 
 The first step is to find the minimum value in $T_2$ and remove it (call it $d$). Then, we denote the rank of the root of $T_2$ by $r$. The next step is to find an element of equal rank to $r$ on the right *roof* (the rightmost path) of $T_1$ and delete the edge from that node to its parent. Then, create new edges as follows:
 
-* Connect $d$ to the root of $T_2$ and the element of equal rank in $T_1$. These two are the new children of $d​$.
+* Connect $d$ to the root of $T_2$ and the element of equal rank in $T_1$. These two are the new children of $d$.
 * Connect $d$'s parent pointer to the node of rank $r+1$ above the element of equal rank in $T_2$.
 
 The pseudocode for the entire algorithm is below:
